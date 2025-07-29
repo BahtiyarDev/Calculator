@@ -162,7 +162,12 @@ class Ui_MainWindow(object):
                                 self.label_result.setText(self.label_result.text() + str(number))
     def answer(self):
         #    print(self.answ)
-           if self.answ == True:
+           if self.label_result.text()[-1] == '+' or self.label_result.text()[-1] == '-' or self.label_result.text()[-1] == '*' or self.label_result.text()[-1] == '/':
+                  self.label_result.setText(f'Answer: {eval(self.label_result.text()[:-1])}')
+                  self.answ = True
+
+                
+           elif self.answ == True:
                 # print("Возникла ошибка!")
                 self.label_result.setText('0')
                 self.answ = False
