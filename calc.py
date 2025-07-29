@@ -161,8 +161,14 @@ class Ui_MainWindow(object):
                        else:
                                 self.label_result.setText(self.label_result.text() + str(number))
     def answer(self):
-           self.answ = True
-           self.label_result.setText(f'Answer: {eval(self.label_result.text())}')
+        #    print(self.answ)
+           if self.answ == True:
+                # print("Возникла ошибка!")
+                self.label_result.setText('0')
+                self.answ = False
+           else:     
+                self.answ = True
+                self.label_result.setText(f'Answer: {eval(self.label_result.text())}')
            
     def errors(self):
            error = QMessageBox()
