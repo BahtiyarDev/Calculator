@@ -169,6 +169,7 @@ class Ui_MainWindow(object):
                 
            elif self.answ == True:
                 # print("Возникла ошибка!")
+                self.errors()
                 self.label_result.setText('0')
                 self.answ = False
            else:     
@@ -177,10 +178,12 @@ class Ui_MainWindow(object):
            
     def errors(self):
            error = QMessageBox()
-           error.setIcon(QMessageBox.warning)
+           error.setIcon(QMessageBox.Warning)
            error.setWindowTitle("Warning!")
            error.setText("Unexpected Error!")
-           error.setStandardButtons(QMessageBox)
+           error.setStandardButtons(QMessageBox.Ok|QMessageBox.Cancel)
+
+           error.exec_()
 
 
 
